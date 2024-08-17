@@ -1,0 +1,29 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>My Personal Blog</title>
+    <link rel="stylesheet" href="{% static 'CSS/base.css'%}">
+</head>
+<style>
+
+</style>
+<body>
+    <nav>
+        <h1>My Personal Blog</h1>
+    </nav>
+<div class="container">
+  
+<a href="{% url "post_list" %}">Home</a>
+{% block page_title %}{% endblock page_title %}
+<div class="box">
+        {% block page_content %}
+        
+    </div>
+        {% endblock page_content %}
+</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<html>
+  {% extends "base.html" %} {%load static%}
+  <header>
+    <title>List</title>
+  </header>
+  <link rel="stylesheet" href="{% static 'CSS/post_list.css'%}">
+
+  <body>
+    {% block page_title %}
+    <h2 style="font-size:50px;">Blog Posts</h2>
+    {% endblock page_title %} {% block page_content %} {% for post in posts %}
+    <div class="post-box" style="background-color:#f9f9f9; padding: 20px; border: 1px solid #ccc; border-radius:10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+      <h3 style="color:#333; margin-bottom:10px;"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+      <small style="color: #666; display: block; margin-bottom: 10px">{{ post.created_at.date }}</small>
+      <p style="color: #666; font-size: 28px;">{{ post.content|slice:":300" }}...</p>
+    </div>
+    {% endfor %}
+    <a style="color: #337ab7; margin-top: 30px;" href="{% url 'create'%}">Add post</a>
+    {% endblock page_content %}
+  </body>
+</html>
